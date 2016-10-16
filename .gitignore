@@ -1,1 +1,11 @@
-# Project Files/flaskflask/wheelhouse//.idea.idea/# Python__pycache__/*.pyc
+# Project Files
+
+/flask
+flask/
+wheelhouse/
+/.idea
+.idea/
+
+# Python
+__pycache__/
+*.pyc
