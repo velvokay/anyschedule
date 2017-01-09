@@ -5,4 +5,5 @@ app.secret_key = 'alpine'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://jtcpp:alpine64@mysql.server/jtcpp$scanwdb'
 
-#from app import views
+from models import db
+db.init_app(app)
