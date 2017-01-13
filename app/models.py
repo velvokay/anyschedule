@@ -1,7 +1,8 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
+from views import app
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 
 class Item(db.Model):
 	__table__name = 'Item'
