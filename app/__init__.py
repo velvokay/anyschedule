@@ -1,5 +1,5 @@
 from flask import Flask
-from view import app
+from views import app
 
 app.secret_key = 'alpine'
 
