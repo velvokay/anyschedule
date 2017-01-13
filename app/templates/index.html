@@ -7,13 +7,18 @@
 <div class="container-fluid">
     <section>
         <a>New Form:</a>
-        <div class="row">
-            <form action="." method="POST">
-                <textarea class="form-control" name="contents" placeholder="Enter a post!"></textarea>
-                <input type="submit" value="Post comment">
-            </form>
-        </div>
     </section>
+    {% for item in items %}
+    <div class="row">
+        {{ item.content }}
+    </div>
+    {% endfor %}
+    <div class="row">
+        <form action="." method="POST">
+            <textarea class="form-control" name="contents" placeholder="Enter a post!"></textarea>
+            <input type="submit" value="Post comment">
+        </form>
+    </div>
 </div>
 
 </body>

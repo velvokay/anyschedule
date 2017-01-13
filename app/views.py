@@ -33,11 +33,13 @@ class Item(db.Model):
  
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	# if db.session.query('1').from_statement('SELECT 1').all():
-		# return 'connection established'
-	# else:
-		# return 'something is wrong'
-  return render_template('index.html')
+	if request.method == "GET":
+		return render_template('index.html', itemss=Item.query.all())
+
+	item = Item(content=request.form["items"])
+	db.session.add(item)
+	db.session.commit()
+	return redirect(url_for('index'))
   
 @app.route('/register')
 def register():
