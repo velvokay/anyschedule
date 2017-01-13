@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
-from models import db, Item
+#from models import Item, db
  
 app = Flask(__name__)      
 
@@ -14,6 +14,23 @@ app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
 db = SQLAlchemy(app)
+
+class Item(db.Model):
+	__table__name = 'Item'
+	id = db.Column(db.Integer, primary_key = True)
+	name = db.Column(db.String(45))
+	price = db.Column(db.String(10))
+	quantity = db.Column(db.Integer)
+	description = db.Column(db.String(5000))
+	date = db.Column(db.String(10))
+	
+	def __init__(self, name, price, description, date):
+		self.name = name.title()
+		self.price = price.title()
+		self.description = description.title()
+		self.date = date.title()
+		
+items = []
  
 @app.route('/', methods=['GET', 'POST'])
 def index():
