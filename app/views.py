@@ -1,10 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
 
 from models import db, Item
  
 app = Flask(__name__)      
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://jtcpp:alpine64@jtcpp.mysql.pythonanywhere-services.com/jtcpp$scanwdb".format(
+	username="jtcpp",
+	password="alpine64",
+	hostname="jtcpp.mysql.pythonanywhere-services.com",
+	databasename="jtcpp$scanwdb")
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+
+db = SQLAlchemy(app)
  
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
 	# if db.session.query('1').from_statement('SELECT 1').all():
 		# return 'connection established'
