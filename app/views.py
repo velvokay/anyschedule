@@ -34,9 +34,9 @@ class Item(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == "GET":
-		return render_template('index.html', itemss=Item.query.all())
+		return render_template('index.html', items=Item.query.all())
 
-	item = Item(content=request.form["items"])
+	item = Item(name=request.form["items"])
 	db.session.add(item)
 	db.session.commit()
 	return redirect(url_for('index'))
