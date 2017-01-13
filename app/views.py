@@ -15,8 +15,8 @@ app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
 db = SQLAlchemy(app)
 
-class Item(db.Model):
-	__table__name = 'items'
+class Ittem(db.Model):
+	__table__name = 'itemss'
 	id = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(45))
 	price = db.Column(db.String(10))
@@ -37,7 +37,7 @@ def index():
 		# return 'connection established'
 	# else:
 		# return 'something is wrong'
-  return render_template('index.html', items=Item.query.all())
+  return render_template('index.html', itemss=Ittem.query.all())
   
 @app.route('/register')
 def register():
