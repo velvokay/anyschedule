@@ -6,11 +6,11 @@ app = Flask(__name__)
  
 @app.route('/')
 def index():
-	if db.session.query('1').from_statement('SELECT 1').all():
-		return 'connection established'
-	else:
-		return 'something is wrong'
-  #return render_template('index.html')
+	# if db.session.query('1').from_statement('SELECT 1').all():
+		# return 'connection established'
+	# else:
+		# return 'something is wrong'
+  return render_template('index.html')
   
 @app.route('/register')
 def register():
