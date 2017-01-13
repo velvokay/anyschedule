@@ -36,7 +36,7 @@ def index():
 	if request.method == "GET":
 		return render_template('index.html', items=Item.query.all())
 
-	item = Item(name=request.form["items"])
+	item = Item(name=request.form["items"], price="32.99", description="nothinghere", date="01/01/1970")
 	db.session.add(item)
 	db.session.commit()
 	return redirect(url_for('index'))
