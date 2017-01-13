@@ -15,8 +15,8 @@ app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 
 db = SQLAlchemy(app)
 
-class Ittem(db.Model):
-	__table__name = 'itemss'
+class Item(db.Model):
+	__tablename__ = 'items'
 	id = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(45))
 	price = db.Column(db.String(10))
