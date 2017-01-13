@@ -37,7 +37,7 @@ def index():
 		# return 'connection established'
 	# else:
 		# return 'something is wrong'
-  return render_template('index.html', itemss=Ittem.query.all())
+  return render_template('index.html')
   
 @app.route('/register')
 def register():
