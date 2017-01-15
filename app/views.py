@@ -30,6 +30,24 @@ class Item(db.Model):
 		self.description = description.title()
 		self.date = date.title()
 		
+class Course(db.Model):
+	__tablename__ = 'courses'
+	id = db.Column(db.Integer, primary_key = True)
+	name = db.Column(db.String(45))
+	units = db.Column(db.Integer)
+	transferable_to = db.Column(db.String(5000))
+	
+	def __init__(self, name, transferable_to):
+		self.name = name.title()
+		self.transferable_to = transferable_to.title()
+	
+class Institution(db.Model):
+	__tablename__ = 'institutions'
+	id = db.Column(db.Integer, primary_key = True)
+	name = db.Column(db.String(45))
+	
+	def __init__(self, name):
+		self.name = name.title()
  
 @app.route('/', methods=['GET', 'POST'])
 def index():
